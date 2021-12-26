@@ -12,6 +12,10 @@ Next, migrate the database:
 ```
 $ rails db:migrate
 ```
+Then, install yarn and add bootstrap:
+```
+$ yarn add bootstrap@next jquery @popperjs/core 
+```
 Finally, run the test suite to verify that everything is working correctly:
 ```
 $ rails test

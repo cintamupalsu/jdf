@@ -14,7 +14,7 @@ $ rails db:migrate
 ```
 Add bootstrap and javascript (Version: bootstrap(5.1.3)
 ```
-yarn add bootstrap@next jquery @popperjs/core
+$ yarn add bootstrap@next jquery @popperjs/core
 ```
 Finally, run the test suite to verify that everything is working correctly:
 ```

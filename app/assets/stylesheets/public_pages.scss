@@ -3,17 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "bootstrap/scss/bootstrap";
 
-$gray-medium-light: #eaeaea;
-$gray-darker: #a9a9a9;
-$gray-light: #d3d3d3;
-$gray: #808080;
+$gray-medium-light: #ffd699;
+$gray-darker: #ffc166;
+$gray-light: #ffad33;
+$gray: #ff9800;
 $blue-light: #00BFFF;
+$background: #ffeacc;
+//$blue-light: #FEDEBE;
 
 #general-msg{
     margin-top: 5px;
 }
 .background-blue{
-    background: #deeff5;
+    background: $background;
 }
 #jdf_logo{
     float: left;
@@ -30,7 +32,7 @@ $blue-light: #00BFFF;
 footer{
     margin-top: 5px;
     padding-top: 5px;
-    border-top: 1px solid #8aacb8;
+    border-top: 1px solid #ffa219;
     color: $gray-light;
     a{
        color: $gray;

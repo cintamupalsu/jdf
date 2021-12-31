@@ -1,8 +1,8 @@
-# Japan Da'wah Foundation
+# Japan Dahwa Foundation
 
-特にまだないです。これから頑張ります。
 ## Getting started
-First, install ruby on rails (coba search di internet tergantung OS masing2)
+First, install ruby on rails
+Ruby version 2.7.1
 
 To get started with the app, clone the repo and then install the needed gems:
 ```
@@ -12,9 +12,9 @@ Next, migrate the database:
 ```
 $ rails db:migrate
 ```
-Then, install yarn and add bootstrap:
+Add bootstrap and javascript (Version: bootstrap(5.1.3)
 ```
-$ yarn add bootstrap@next jquery @popperjs/core 
+$ yarn add bootstrap@next jquery @popperjs/core
 ```
 Finally, run the test suite to verify that everything is working correctly:
 ```

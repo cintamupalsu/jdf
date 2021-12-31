@@ -7,7 +7,7 @@ $gray-medium-light: #ffd699;
 $gray-darker: #ffc166;
 $gray-light: #ffad33;
 $gray: #ff9800;
-$blue-light: #00BFFF;
+$blue-light: #FF6d0A;
 $background: #ffeacc;
 //$blue-light: #FEDEBE;
 
@@ -52,3 +52,8 @@ footer{
        }
     }
  }
+header{
+   .nav-link{
+      color: $blue-light;
+   }
+}

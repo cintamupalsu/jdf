@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   get 'dashboard/index'
   devise_for :users
   get 'public_pages/home'

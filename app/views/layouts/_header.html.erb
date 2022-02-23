@@ -11,12 +11,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "🏠 ホーム", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "🏗 設備", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "🍱 市場", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "📣 ダワー", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "💯 検定問題", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "🗓 カレンダー", root_path, class: "nav-link" %> </li>
-            <li><%= link_to "🕋 ハラル静岡", root_path, class: "nav-link" %> </li>
+            <li><%= link_to "🏗 設備", facility_path, class: "nav-link" %> </li>
+            <li><%= link_to "🍱 市場", market_path, class: "nav-link" %> </li>
+            <li><%= link_to "📣 ダワー", dahwa_path, class: "nav-link" %> </li>
+            <li><%= link_to "💯 検定問題", quiz_path, class: "nav-link" %> </li>
+            <li><%= link_to "🗓 カレンダー", calendar_path, class: "nav-link" %> </li>
+            <li><%= link_to "🕋 ハラル静岡", halal_path, class: "nav-link" %> </li>
           </ul>
         </li>
         <% if user_signed_in? %>
@@ -27,7 +27,10 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% if RoleTransaction.where("user_id = ? AND role_id = 1", current_user.id) %>
-                  <li><%= link_to "👨🏻‍✈️ ユーザー管理", "#", class: "nav-link" %></li>
+                  <li><%= link_to "👨🏻‍✈️ ユーザー管理", usermanage_path, class: "nav-link" %></li>
+                <% end %>
+                <% if RoleTransaction.where("user_id = ? AND role_id = 2", current_user.id) %>
+                  <li><%= link_to "🗞 ニュース管理", "#", class: "nav-link" %></li>
                 <% end %>
                 <% if current_user.role_transactions.count > 0%>
                   <li><hr class="dropdown-divider"></li>

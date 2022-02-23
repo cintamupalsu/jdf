@@ -6,5 +6,6 @@ class CreateRoleTransactions < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :role_transactions, [:user_id, :role_id], unique: true
   end
 end

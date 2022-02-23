@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.create(email: "admin@jdf.com", password: "adminjdf", name: "Admin", developer: 1)
-# User.create(email: "editor@jdf.com", password: "editorjdf", name: "Editor", developer: 0)
+User.create(email: "admin@jdf.com", password: "adminjdf", name: "Admin", developer: 1)
+User.create(email: "editor@jdf.com", password: "editorjdf", name: "Editor", developer: 0)
 Role.create(content: "Can manage user")
 Role.create(content: "Can manage news")
 RoleTransaction.create(user_id: 1, role_id: 1)  #Set first user as Admin

@@ -27,7 +27,7 @@ $ rails server
 ## Start to contribute
 Create a branch
 ```
-$ git checkout -b <branch name>
+$ git checkout -b <branch_name>
 ```
 Then write code...
 🤧🥴😵‍💫😮‍💨
@@ -45,5 +45,5 @@ $ git checkout master
 ```
 and push to github to request merge
 ```
-$ git push
+$ git push --set-upstream origin <branch_name>
 ```

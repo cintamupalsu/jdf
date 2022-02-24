@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   delete '/deleteuser', to: 'roles#destroyuser'
   get '/showuserroles', to: 'roles#userrole'
   post '/update_roles', to: 'roles#updateroles'
-  get 'dashboard', to: 'dashboard#write'
+  get '/dashboard', to: 'dashboard#write'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

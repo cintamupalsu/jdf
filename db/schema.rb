@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_23_042122) do
+ActiveRecord::Schema.define(version: 2022_02_23_043552) do
+
+  create_table "item_types", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.integer "type"
@@ -23,7 +29,27 @@ ActiveRecord::Schema.define(version: 2022_01_23_042122) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "item_type_id", null: false
+    t.index "\"datetime\", \"item_type_id\", \"user_id\"", name: "index_items_on_datetime_and_item_type_id_and_user_id"
+    t.index ["item_type_id"], name: "index_items_on_item_type_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "role_transactions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_role_transactions_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_role_transactions_on_user_id_and_role_id", unique: true
+    t.index ["user_id"], name: "index_role_transactions_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["id", "created_at"], name: "index_roles_on_id_and_created_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +66,8 @@ ActiveRecord::Schema.define(version: 2022_01_23_042122) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "item_types"
   add_foreign_key "items", "users"
+  add_foreign_key "role_transactions", "roles"
+  add_foreign_key "role_transactions", "users"
 end

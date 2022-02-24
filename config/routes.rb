@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'quiz', to: 'public_pages#quiz'
   get 'calendar', to: 'public_pages#calendar'
   get 'halal', to: 'public_pages#halal'
-
+  get 'dashboard', to: 'dashboard#write'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'roles/users'
-  resources :items
+  resources :mitems
   get 'dashboard/index'
   devise_for :users
   get 'public_pages/home'

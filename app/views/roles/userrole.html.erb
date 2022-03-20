@@ -19,7 +19,7 @@
                     <% @roles.each do |role|%>
                         <div class="row border-bottom mt-1 mb-1">
                             <div class="col-1 text-center">
-                                <% rt = RoleTransaction.where("user_id = ? AND role_id = ?", @user.id, role.id).first %>
+                                <% rt = UserRoleTransaction.where("user_id = ? AND user_role_id = ?", @user.id, role.id).first %>
                                 <% if rt %>
                                     <%= f.check_box :yaru, multiple: true, checked: true %>
                                 <% else %>

@@ -20,19 +20,19 @@
           </ul>
         </li>
         <% if user_signed_in? %>
-          <% if current_user.role_transactions.count > 0 %>
+          <% if current_user.user_role_transactions.count > 0 %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 🕌 機能
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <% if RoleTransaction.where("user_id = ? AND role_id = 1", current_user.id) %>
+                <% if UserRoleTransaction.where("user_id = ? AND user_role_id = 1", current_user.id) %>
                   <li><%= link_to "👨🏻‍✈️ ユーザー管理", usermanage_path, class: "nav-link" %></li>
                 <% end %>
-                <% if RoleTransaction.where("user_id = ? AND role_id = 2", current_user.id) %>
+                <% if UserRoleTransaction.where("user_id = ? AND user_role_id = 2", current_user.id) %>
                   <li><%= link_to "🗞 ニュース管理", "#", class: "nav-link" %></li>
                 <% end %>
-                <% if current_user.role_transactions.count > 0%>
+                <% if current_user.user_role_transactions.count > 0%>
                   <li><hr class="dropdown-divider"></li>
                 <% end %>
                 <li><%= link_to "🚙 ヒッチハイク", "#", class: "nav-link" %></li>

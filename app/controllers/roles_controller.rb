@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   before_action :authenticate_user!
   def users
-    if RoleTransaction.where("role_id = 1 AND user_id = ?", current_user.id)
+    if UserRoleTransaction.where("role_id = 1 AND user_id = ?", current_user.id)
       @users = User.all 
     else
       @users = nil
@@ -10,18 +10,18 @@ class RolesController < ApplicationController
 
   def userrole
     @user = User.find(params['id'].to_i)
-    @roles = Role.all
+    @roles = UserRole.all
   end
 
   def updateroles
     checkbox = check_box_bug(updateroles_params['yaru'])
     user = User.find(updateroles_params['user_id'])
-    roles = Role.all
+    roles = UserRole.all
     (0..checkbox.count-1).each do |counter|
-      rt = RoleTransaction.where("user_id = ? AND role_id = ?", user.id, counter+1).first
+      rt = UserRoleTransaction.where("user_id = ? AND role_id = ?", user.id, counter+1).first
       if checkbox[counter] == 1
         if rt == nil
-          RoleTransaction.create(user_id: user.id, role_id: counter+1)
+          UserRoleTransaction.create(user_id: user.id, role_id: counter+1)
         end
       else
         if rt

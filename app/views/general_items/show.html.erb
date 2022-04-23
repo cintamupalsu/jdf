@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @general_item.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @general_item.subtitle %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @general_item.content %>
+</p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @general_item.item_type_id %>
+</p>
+
+<%= link_to 'Edit', edit_general_item_path(@general_item) %> |
+<%= link_to 'Back', general_items_path %>

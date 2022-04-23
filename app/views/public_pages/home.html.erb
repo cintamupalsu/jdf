@@ -1,7 +1,18 @@
 <%provide(:title,"Home")%>
 <div class="row">
-  <div class="col-12">
-    <h1>will be Home page</h1>
-  </div>
+  
+    <% @general_items.each do |gi| %>
+      <div class="col-3">
+      <div class="card" >
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%=gi.title%></h5>
+          <p class="card-text"><%=gi.subtitle%></p>
+          <a href="#" class="btn btn-outline-primary">表示</a>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  
 </div>
 

@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_18_065608) do
+ActiveRecord::Schema.define(version: 2022_04_23_012640) do
+
+  create_table "general_items", force: :cascade do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.text "content"
+    t.integer "item_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"created_date\"", name: "index_general_items_on_created_date"
+    t.index ["item_type_id"], name: "index_general_items_on_item_type_id"
+  end
+
+  create_table "item_types", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"content\", \"user_id\"", name: "index_item_types_on_content_and_user_id"
+  end
 
   create_table "user_role_transactions", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -43,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_03_18_065608) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "general_items", "item_types"
   add_foreign_key "user_role_transactions", "user_roles"
   add_foreign_key "user_role_transactions", "users"
 end

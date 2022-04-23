@@ -1,6 +1,7 @@
 class PublicPagesController < ApplicationController
   def home
     @selected_item = 0
+    @general_items = GeneralItem.all
   end
 
   def facility

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attached Images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>General item</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attached_images.each do |attached_image| %>
+      <tr>
+        <td><%= attached_image.content %></td>
+        <td><%= attached_image.general_item_id %></td>
+        <td><%= image_tag attached_image.image if attached_image.image.attached? %></td>
+        <td><%= link_to 'Show', attached_image %></td>
+        <td><%= link_to 'Edit', edit_attached_image_path(attached_image) %></td>
+        <td><%= link_to 'Destroy', attached_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attached Image', new_attached_image_path %>

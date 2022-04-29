@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :attached_images
   resources :general_items
   resources :item_types
+
   get 'roles/users'
   resources :mitems
   get 'dashboard/index'

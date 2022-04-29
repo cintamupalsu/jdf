@@ -20,5 +20,11 @@
   <%= @general_item.item_type_id %>
 </p>
 
+<% @general_item.attached_images.each do |image| %>
+
+<% end %>
+
+<%= link_to 'Add Image', new_attached_image_path(:id => @general_item.id) %>
+
 <%= link_to 'Edit', edit_general_item_path(@general_item) %> |
 <%= link_to 'Back', general_items_path %>

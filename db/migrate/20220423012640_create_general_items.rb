@@ -8,6 +8,6 @@ class CreateGeneralItems < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :general_items, [:created_date]
+    add_index :general_items, [:created_at]
   end
 end

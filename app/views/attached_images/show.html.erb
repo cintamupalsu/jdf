@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @attached_image.content %>
+</p>
+
+<p>
+  <strong>General item:</strong>
+  <%= @attached_image.general_item_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_attached_image_path(@attached_image) %> |
+<%= link_to 'Back', attached_images_path %>

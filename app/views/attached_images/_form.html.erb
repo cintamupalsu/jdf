@@ -1,0 +1,38 @@
+<%= form_with(model: attached_image) do |form| %>
+  <% if attached_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attached_image.errors.count, "error") %> prohibited this attached_image from being saved:</h2>
+
+      <ul>
+        <% attached_image.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <%= form.hidden_field :general_item_id, value: @general_item.id%>
+
+  <span class="image">
+    <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $("#attached_image").bind("change", function(){
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert("Maximum file size is 5MB. Please choose a smaller file.");
+    }
+    $("#attached_image").val("");
+  });
+</script>

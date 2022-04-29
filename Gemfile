@@ -31,7 +31,7 @@ gem 'devise'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'active_storage_validations'
-gem 'aws-sdk-s3', '1.46.0', require: false
+gem 'aws-sdk-s3' #, '1.46.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

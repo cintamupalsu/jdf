@@ -1,30 +1,81 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <p id="notice"><%= notice %></p>
+      </div>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @general_item.title %>
-</p>
+    <div class="row">
+      <div class="col-2 border">
+        <strong>Title:</strong>
+      </div>
+      <div class="col-10 border">
+        <%= @general_item.title %>
+      </div>
+    </div>
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @general_item.subtitle %>
-</p>
+    <div class="row">
+      <div class="col-2 border">
+        <strong>Subtitle:</strong>
+      </div>
+      <div class="col-10 border">
+        <%= @general_item.subtitle %>
+      </div>
+    </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @general_item.content %>
-</p>
+    <div class="row">
+      <div class="col-2 border">
+        <strong>Content:</strong>
+      </div>
+      <div class="col-10 border">
+        <%= @general_item.content %>
+      </div>
+    </div>
 
-<p>
-  <strong>Item type:</strong>
-  <%= @general_item.item_type_id %>
-</p>
+    <div class="row">
+      <div class="col-2 border">
+        <strong>Item type:</strong>
+      </div>
+      <div class="col-10 border">
+        <% case @general_item.item_type_id %>
+        <% when 1 then%>
+          News
+        <% else %>
+          Undefined
+        <% end %>
+      </div>
+    </div>
 
-<% @general_item.attached_images.each do |image| %>
+  </div>
+  <div class="card-body">
+    <div clase="row">
+      <div class="col-12 text-center">
+        <strong>Attached images:</strong>
+      </div>
+    </div>
+    <div class="row">
+      <% @general_item.attached_images.each do |image| %>
+        
+        <% if image.image.attached? %>
+          <div class="col-2">
+            <div class="card">
+              <%= image_tag image.image, class:"card-img-top", style:'height:100px;'%>
+              <div class="card-body">
+                <%= image.content%>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-<% end %>
-
-<%= link_to 'Add Image', new_attached_image_path(:id => @general_item.id) %>
-
-<%= link_to 'Edit', edit_general_item_path(@general_item) %> |
-<%= link_to 'Back', general_items_path %>
+      <% end %>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= link_to 'Add Image', new_attached_image_path(:id => @general_item.id) %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Edit', edit_general_item_path(@general_item) %> |
+    <%= link_to 'Back', general_items_path %>
+  </div>
+</div>

@@ -4,7 +4,14 @@
     <% @general_items.each do |gi| %>
       <div class="col-3">
       <div class="card" >
-        <img src="..." class="card-img-top" alt="...">
+        
+        <% if gi.attached_images.count>0 %>
+          <% if gi.attached_images[0].image.attached? %>
+            <%= image_tag gi.attached_images[0].image, class:"card-img-top", style:'height:200px;'%>
+          <% end %>
+        <% else %>
+            <%= image_tag("common/jdf_logo.png", class:"card-img-top", style:'height:200px;') %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%=gi.title%></h5>
           <p class="card-text"><%=gi.subtitle%></p>
